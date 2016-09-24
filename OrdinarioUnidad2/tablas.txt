@@ -1,0 +1,42 @@
+-- Table: public.estudiantes
+
+-- DROP TABLE public.estudiantes;
+
+CREATE TABLE public.estudiantes
+(
+    id_estudiante integer NOT NULL DEFAULT nextval('estudiantes_id_estudiante_seq'::regclass),
+    nombre character varying(20) COLLATE "default".pg_catalog,
+    apellidos character varying(30) COLLATE "default".pg_catalog,
+    curso character varying(30) COLLATE "default".pg_catalog,
+    anio integer,
+    CONSTRAINT estudiante_pk PRIMARY KEY (id_estudiante)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.estudiantes
+    OWNER to postgres;
+
+-----------------------------------------------------------------------------------------------
+
+-- Table: public.foro
+
+-- DROP TABLE public.foro;
+
+CREATE TABLE public.foro
+(
+    id_foro integer NOT NULL DEFAULT nextval('foro_id_foro_seq'::regclass),
+    titulo character varying(30) COLLATE "default".pg_catalog,
+    descripcion character varying(30) COLLATE "default".pg_catalog,
+    estado integer,
+    CONSTRAINT foro_pkey PRIMARY KEY (id_foro)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.foro
+    OWNER to postgres;
